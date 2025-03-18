@@ -1,39 +1,20 @@
+// Your code here...
 #include <stdio.h>
-
-void leftRotate(int arr[], int n, int k) {
-    k = k % n;
-    int temp[k];
-    for (int i = 0; i < k; i++) {
-        temp[i] = arr[i];
+int main(){
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    int ma,mi;
+    ma=-1;
+    mi=arr[1];
+    for(int i=1;i<=n;i++){
+        scanf("%d",&arr[i]);
+        if(arr[i]>=ma){
+            ma=arr[i];
+        }
+        if(arr[i]<=mi){
+            mi=arr[i];
+        }
     }
-    for (int i = 0; i < n - k; i++) {
-        arr[i] = arr[i + k];
-    }
-
-    for (int i = 0; i < k; i++) {
-        arr[n - k + i] = temp[i];
-    }
-}
-
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}
-
-int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int k = 2;
-
-    printf("Original Array: ");
-    printArray(arr, n);
-
-    leftRotate(arr, n, k);
-
-    printf("Array after left rotation by %d positions: ", k);
-    printArray(arr, n);
-
-    return 0;
+    printf("%d %d",mi,ma);
 }
